@@ -14,20 +14,16 @@ def reqls():
 	thread.start()
 
 def List(server_address):
-#	addr = (server_address)
 	connection.sendall('listing')
 	for namafile in fn:
-		connection.sendall(namafile)
-	connection.sendall('stop_listing')
+		connection.sendall(namafile+'\n')
+	#connection.send('stop_listing')
 
 def reqdl():
-#	temp = str(data)
-#	if data == "sambung":
 	thread = Thread(target=sendImg, args=(connection,))
 	thread.start()
 
 def sendImg(server_address):
-	#addr = (server_address)
 	for x in fn:
 		print "Mengirim File %s" % x
 		connection.sendall("masuk")

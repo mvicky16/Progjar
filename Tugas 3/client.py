@@ -20,14 +20,12 @@ while True:
 		temp = sock.recv(1024)
 		if str(temp) == 'stop_listing':
 			break
-		else :
+		else:
 			print temp+ '\n'
 	
 	elif cmd == 'download':
 		while True:
 			a = sock.recv(1024)
-			if a == 'done':
-				break
 			if a == 'masuk':
 				namafile = sock.recv(1024)
 				f = open(dn % namafile, 'wb+')
@@ -35,6 +33,8 @@ while True:
 				f.write(b)
 				f.close()
 				print "File "+ namafile+ " telah diterima"
+			if a == 'done':
+				break
 	else:
 		print 'Command yang benar!'
 		
